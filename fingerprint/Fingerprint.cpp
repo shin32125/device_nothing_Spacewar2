@@ -43,7 +43,21 @@ constexpr char HW_VERSION[] = "nothing/goodix/fp_hal";
 constexpr char FW_VERSION[] = "1.01";
 constexpr char SERIAL_NUMBER[] = "00000001";
 constexpr char SW_COMPONENT_ID[] = "matchingAlgorithm";
-constexpr char SW_VERSION[] = "halogenOS/15/0";
+constexpr char SW_VERSION[] = "vendor/version/revision";
+static bool readBool(int fd) {
+    char c;
+    int rc;
+    rc = lseek(fd, 0, SEEK_SET);
+    if (rc) {
+        ALOGE("failed to seek fd, err: %d", rc);
+        return false;
+    }
+    rc = read(fd, &c, sizeof(char));
+    if (rc != 1) {
+        ALOGE("failed to read bool from fd, err: %d", rc);
+        return false;
+    }
+    return c != '0';
 }  // namespace
 
 static Fingerprint* sInstance;
