@@ -20,15 +20,19 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/nothing/Spacewar/device.mk)
 
 # Inherit some common ROM vendor config
-$(call inherit-product, vendor/derp/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_BOOT_ANIMATION_RES := 1080
 
-# Derp Flags
+# RisingOS Flags
 TARGET_SUPPORTS_QUICK_TAP := true
 EXTRA_UDFPS_ICONS := true
-TARGET_NOT_USES_BLUR := true
 TARGET_USES_NOTHING_CAMERA := true
+RISING_PACKAGE_TYPE := "CORE_GMS_BETA"
+PRODUCT_NO_CAMERA := true
+WITH_GMS := true
+TARGET_CORE_GMS := true
+TARGET_ENABLE_BLUR := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := derp_Spacewar
@@ -42,7 +46,12 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_GMS_CLIENTID_BASE := android-nothing
 
-# Override device name
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE=Spacewar \
-    TARGET_PRODUCT=Spacewar
+# Override device name                                                                        │···
+PRODUCT_BUILD_PROP_OVERRIDES += \                                                             │···
+    SystemDevice=Spacewar \                                                                   │···
+    DeviceProduct=Spacewar                                                                    │···
+                                                                                              │···
+# RisingOS flags                                                                              │···
+PRODUCT_BUILD_PROP_OVERRIDES += \                                                             │···
+    RisingChipset="Snapdragon 778+" \                                                         │···
+    RisingMaintainer="F1X"
