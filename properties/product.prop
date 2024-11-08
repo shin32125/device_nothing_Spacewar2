@@ -13,6 +13,15 @@ persist.vendor.audio.spatializer.speaker_enabled=true
 # Camera
 ro.camerax.extensions.enabled=true
 
+# Radio
+persist.vendor.radio.atfwd.start=true
+ril.subscription.types=NV,RUIM
+ro.telephony.default_network=33,33
+ro.telephony.sim_slots.count=2
+ro.vendor.use_data_netmgrd=true
+telephony.active_modems.max_count=2
+telephony.lteOnCdmaDevice=1
+
 # Thermal
 persist.vendor.thermal.config=/vendor/etc/thermal-engine.conf
 
