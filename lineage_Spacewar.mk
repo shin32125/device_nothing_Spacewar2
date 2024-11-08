@@ -46,12 +46,12 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_GMS_CLIENTID_BASE := android-nothing
 
-# Override device name                                                                        │···
-PRODUCT_BUILD_PROP_OVERRIDES += \                                                             │···
-    SystemDevice=Spacewar \                                                                   │···
-    DeviceProduct=Spacewar                                                                    │···
-                                                                                              │···
-# RisingOS flags                                                                              │···
-PRODUCT_BUILD_PROP_OVERRIDES += \                                                             │···
-    RisingChipset="Snapdragon 778+" \                                                         │···
+# Override device name
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    SystemDevice=Spacewar \
+    DeviceProduct=Spacewar
+
+# RisingOS flags 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingChipset="Snapdragon 778+" \
     RisingMaintainer="F1X"
