@@ -44,20 +44,6 @@ constexpr char FW_VERSION[] = "1.01";
 constexpr char SERIAL_NUMBER[] = "00000001";
 constexpr char SW_COMPONENT_ID[] = "matchingAlgorithm";
 constexpr char SW_VERSION[] = "vendor/version/revision";
-static bool readBool(int fd) {
-    char c;
-    int rc;
-    rc = lseek(fd, 0, SEEK_SET);
-    if (rc) {
-        LOG(ERROR) << "Failed to seek fd, error: " << rc;
-        return false;
-    }
-    rc = read(fd, &c, sizeof(char));
-    if (rc != 1) {
-        LOG(ERROR) << "Failed to read bool from fd, error: " << rc;
-        return false;
-    }
-    return c != '0';
 }
 
 static Fingerprint* sInstance;
